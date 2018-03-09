@@ -16,6 +16,9 @@
 			<div>
 			<a href="<%=request.getContextPath()%>/join"><button type="button">회원가입</button></a> 
 			</div>
+			<div>
+			<a href="<%=request.getContextPath()%>/join"><button type="button">회원가입</button></a> 
+			</div>
 		</div>
 	</div>
 </body>
