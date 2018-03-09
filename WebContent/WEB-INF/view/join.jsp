@@ -13,7 +13,12 @@
 				<small>- 회 원 가 입 -</small>
 				<hr>
 			</div>
-			<form action="/join" method="post">
+			<div>
+			<c:if test="${error == null } ">
+			<b style="color: red">${error }</b>
+			</c:if>
+			</div>
+			<form action="<%=request.getContextPath() %>/join" method="post">
 			<div >
 			<table style="padding-bottom: 5px;">
 				<tr>
@@ -30,7 +35,7 @@
 				</tr>
 				<tr>
 					<td><b>PASS</b></td>
-					<td><input type="password" name="pass"/></td>
+					<td><input type="password" name="password"/></td>
 				</tr>
 			</table>
 			<button type="submit" style="width:23%;">가 입 신 청</button>
