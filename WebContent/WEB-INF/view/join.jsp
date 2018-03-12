@@ -14,9 +14,11 @@
 				<hr>
 			</div>
 			<div>
-			<c:if test="${error == null } ">
+			<P>
+			<c:if test="${!empty error }">
 			<b style="color: red">${error }</b>
 			</c:if>
+			</P>
 			</div>
 			<form action="<%=request.getContextPath() %>/join" method="post">
 			<div >
@@ -29,7 +31,7 @@
 				</tr>
 				<tr>
 					<td><b>EMAIL</b></td>
-					<td><input type="text" name="email"/></td>
+					<td><input type="email" name="email"/></td>
 				</tr>
 				<tr>
 				</tr>

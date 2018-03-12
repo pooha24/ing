@@ -33,14 +33,19 @@ public class NavController {
 	@RequestMapping(path="/join", method=RequestMethod.POST)
 	public String joinPostHandle(@RequestParam Map<String, String> map,HttpSession session, Model model) {
 		
-		boolean rst = joinservice.memberJoin(map);
 		
+		try {
+			boolean rst = joinservice.memberJoin(map);
 		if(rst) {
 			session.setAttribute("id", map.get("id"));
 			return "redirect:/";
-		}else {
+			}
+			throw new Exception();
+		}catch(Exception e) {
+		
 			model.addAttribute("error","ID가 이미 있거나 등록된 E-Mail 입니다.");
-			return "join";
+				return "join";
+			
 		}
 	}
 	
