@@ -29,5 +29,26 @@
 			<%} %>
 		</div>
 	</div>
+	<div class="alert alert-warning alert-dismissible" id="warn" style="display: none">
+			<a href="javascript:location.reload();" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			<strong>경고!</strong> 다른 윈도우 혹은 탭에서 상태가 변경되었습니다.
+		</div>
+	<script>
+		var alertws = new WebSocket("ws://192.168.10.88/chap05/alert");
+		alertws.onmessage = function(rst){
+			console.log(rst);
+			var obj= JSON.parse(rst);
+		}
+		
+		var ws = new WebSocket("ws://${pageContext.request.serverName}/alert");
+		ws.onmessage = function(rst) {
+			console.log(rst);
+			$("#warn").show();
+			// var obj = JSON.parse(rst);
+		}
+		
+	
+	</script>
+	
 </body>
 </html>
